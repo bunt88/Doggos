@@ -56,6 +56,7 @@ const spinner= document.querySelector('.spinner');
 function getDoggo(url) {
     spinner.classList.add("show");
     img.classList.remove("show");
+    //img.style.display = 'none';
     fetch(url)
     .then(function (response) {
         return response.json();
@@ -72,6 +73,7 @@ function getDoggo(url) {
 img.addEventListener("load", function () {
     spinner.classList.remove("show");
     img.classList.add("show");
+    //img.style.display = 'block';
 })
 //make url
 //show loading spinner
