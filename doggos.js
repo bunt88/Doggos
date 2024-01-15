@@ -44,9 +44,23 @@ fetch(BREEDS_URL)
 })
 
 select.addEventListener("change", function(event) {
-    console.log(event.target.value);
-    console.log(`https://dog.ceo/api/breed/${event.target.value}/images/random`)
+
+    let url = `https://dog.ceo/api/breed/${event.target.value}/images/random`
+
+    getDoggo(url);
 });
+
+const img = document.querySelector('.dog-img')
+
+function getDoggo(url) {
+    fetch(url)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function(data) {
+        img.src = data.message;
+    })
+}
 
 //make url
 //show loading spinner
