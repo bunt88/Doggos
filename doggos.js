@@ -50,18 +50,29 @@ select.addEventListener("change", function(event) {
     getDoggo(url);
 });
 
-const img = document.querySelector('.dog-img')
+const img = document.querySelector('.dog-img');
+const spinner= document.querySelector('.spinner');
 
 function getDoggo(url) {
+    spinner.classList.add("show");
+    img.classList.remove("show");
     fetch(url)
     .then(function (response) {
         return response.json();
     })
     .then(function(data) {
         img.src = data.message;
+
+        // spinner.classList.remove("show");
+        // img.classList.add("show");
     })
 }
 
+
+img.addEventListener("load", function () {
+    spinner.classList.remove("show");
+    img.classList.add("show");
+})
 //make url
 //show loading spinner
 //fetch from the api
