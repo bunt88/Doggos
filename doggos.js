@@ -1,9 +1,23 @@
 const BREEDS_URL = 'https://dog.ceo/api/breeds/image/random';
 
-fetch(BREEDS_URL)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        console.log(data);
-    })
+function addDoggo () {
+
+    fetch(BREEDS_URL)  //fetch gets whats called a promise
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            const img = document.createElement('img');
+            img.src = data.message;
+            img.alt = 'Cute Doggo';
+    
+            document.querySelector('.doggos')
+                .appendChild(img);
+        })
+
+}
+
+
+document.querySelector('.add-doggo').addEventListener("click", addDoggo)
+
+
