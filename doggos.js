@@ -45,4 +45,11 @@ fetch(BREEDS_URL)
 
 select.addEventListener("change", function(event) {
     console.log(event.target.value);
+    console.log(`https://dog.ceo/api/breed/${event.target.value}/images/random`)
 });
+
+//make url
+//show loading spinner
+//fetch from the api
+//use the url to change the current image
+//stop showing the loading spinner
